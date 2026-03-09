@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { FamilyGroup } from '../data/familyTree.ts'
+import BdayBadge from './BdayBadge.tsx'
 import CoupleCard from './CoupleCard.tsx'
 
 type FamilyBranchGroupProps = {
@@ -99,8 +100,9 @@ function FamilyBranchGroup({
                               active && isExpanded ? `${groupDelay + 80 + childIndex * 55}ms` : '0ms',
                           }}
                         >
-                          <div className="text-sm font-semibold uppercase tracking-[0.18em] text-white/82">
+                          <div className="flex items-center text-sm font-semibold uppercase tracking-[0.18em] text-white/82">
                             {child.name}
+                            <BdayBadge bday={child.bday} />
                           </div>
                         </div>
                       ))}

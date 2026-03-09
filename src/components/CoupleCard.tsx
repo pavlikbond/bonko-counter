@@ -1,4 +1,5 @@
 import type { FamilyMember } from '../data/familyTree.ts'
+import BdayBadge from './BdayBadge.tsx'
 
 type CoupleCardProps = {
   member: FamilyMember
@@ -29,8 +30,8 @@ function CoupleCard({
     <div className="branch-item">
       <button
         type="button"
-        onClick={onClick}
-        disabled={!clickable}
+        onClick={clickable ? onClick : undefined}
+        aria-disabled={!clickable}
         className={`w-full rounded-[1.75rem] border p-4 text-left shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-700 ${
           dark ? 'border-white/6 bg-white/2.5' : 'border-white/10 bg-white/5'
         } ${
@@ -54,16 +55,19 @@ function CoupleCard({
               }`}
             >
               <span className="underline decoration-white/30 underline-offset-4">{member.name}</span>
+              <BdayBadge bday={member.bday} />
               {member.spouse ? (
                 <>
                   <span className={`mx-1.5 ${dark ? 'text-white/30' : 'text-white/40'}`}>&amp;</span>
-                  <span>{member.spouse}</span>
+                  <span>{member.spouse.name}</span>
+                  <BdayBadge bday={member.spouse.bday} />
                 </>
               ) : null}
               {member.formerSpouse ? (
                 <>
                   <span className={`mx-1.5 ${dark ? 'text-white/30' : 'text-white/40'}`}>&amp;</span>
-                  <span className="text-white/45">{member.formerSpouse}<span className="ml-0.5 text-[0.7em] text-white/35">†</span></span>
+                  <span className="text-white/45">{member.formerSpouse.name}<span className="ml-0.5 text-[0.7em] text-white/35">†</span></span>
+                  <BdayBadge bday={member.formerSpouse.bday} />
                 </>
               ) : null}
             </p>

@@ -1,7 +1,15 @@
+export type PersonInfo = {
+  name: string;
+  lastName?: string;
+  bday?: string;
+};
+
 export type FamilyMember = {
   name: string;
-  spouse?: string;
-  formerSpouse?: string;
+  lastName?: string;
+  bday?: string;
+  spouse?: PersonInfo;
+  formerSpouse?: PersonInfo;
   children?: FamilyMember[];
 };
 
@@ -25,133 +33,221 @@ export type GenerationSectionData = {
 
 export const familyTree: FamilyMember = {
   name: "Peter",
-  spouse: "Diana",
+  lastName: "Bondarenko",
+  bday: "10-08-1934",
+  spouse: { name: "Diana", lastName: "Bondarenko", bday: "01-13-1937" },
   children: [
     {
       name: "Benjamin",
-      spouse: "Lyubov",
+      lastName: "Bondarenko",
+      bday: "03-25-1962",
+      spouse: { name: "Lyubov", lastName: "Bondarenko", bday: "06-21-1962" },
       children: [
         {
           name: "Liza",
-          spouse: "Yura",
-          children: [{ name: "Ethan" }, { name: "Matthew" }, { name: "Philip" }, { name: "Nellie" }],
+          lastName: "Andreyevskiy",
+          bday: "04-10-1989",
+          spouse: { name: "Yura", lastName: "Andreyevskiy", bday: "09-20-1988" },
+          children: [
+            { name: "Ethan", lastName: "Andreyevskiy", bday: "01-16-2012" },
+            { name: "Matthew", lastName: "Andreyevskiy", bday: "01-04-2015" },
+            { name: "Philip", lastName: "Andreyevskiy", bday: "05-29-2017" },
+            { name: "Nellie", lastName: "Andreyevskiy", bday: "07-03-2021" },
+          ],
         },
         {
           name: "Joseph",
-          spouse: "Lily",
-          children: [{ name: "Elsie" }, { name: "Avie" }, { name: "Silas" }],
+          lastName: "Bondarenko",
+          bday: "07-22-1990",
+          spouse: { name: "Lily", lastName: "Bondarenko", bday: "10-14-1990" },
+          children: [
+            { name: "Elsie", lastName: "Bondarenko", bday: "08-08-2020" },
+            { name: "Avie", lastName: "Bondarenko", bday: "03-10-2022" },
+            { name: "Silas", lastName: "Bondarenko", bday: "09-10-2024" },
+          ],
         },
         {
           name: "Pavel",
-          spouse: "Tanya",
-          children: [{ name: "Lilah" }, { name: "Noah" }],
+          lastName: "Bondarenko",
+          bday: "07-26-1991",
+          spouse: { name: "Tanya", lastName: "Bondarenko", bday: "04-02-1996" },
+          children: [
+            { name: "Lilah", lastName: "Bondarenko", bday: "04-22-2022" },
+            { name: "Noah", lastName: "Bondarenko", bday: "06-03-2024" },
+          ],
         },
         {
           name: "Mariya",
-          spouse: "Andrey",
-          children: [{ name: "Addie" }, { name: "Lucy" }],
+          lastName: "Radionov",
+          bday: "12-05-1992",
+          spouse: { name: "Andrey", lastName: "Radionov", bday: "06-20-1990" },
+          children: [
+            { name: "Addie", lastName: "Radionov", bday: "06-27-2018" },
+            { name: "Lucy", lastName: "Radionov", bday: "08-24-2021" },
+          ],
         },
-        { name: "Mark", spouse: "Abby", children: [{ name: "Haddie" }] },
-        { name: "Anna" },
+        {
+          name: "Mark",
+          lastName: "Bondarenko",
+          bday: "04-28-1997",
+          spouse: { name: "Abby", lastName: "Bondarenko", bday: "02-03-2000" },
+          children: [{ name: "Haddie", lastName: "Bondarenko", bday: "06-16-2024" }],
+        },
+        { name: "Anna", lastName: "Bondarenko", bday: "06-26-2001" },
       ],
     },
     {
       name: "Olga",
-      spouse: "Volodya",
+      lastName: "Petrenko",
+      bday: "05-29-1964",
+      spouse: { name: "Volodya", lastName: "Petrenko", bday: "10-02-1958" },
       children: [
         {
           name: "Dydi",
-          spouse: "Jenny",
-          children: [{ name: "Arianna" }, { name: "Annabel" }],
+          lastName: "Petrenko",
+          bday: "07-31-1984",
+          spouse: { name: "Jenny", lastName: "Petrenko", bday: "09-15-1990" },
+          children: [
+            { name: "Arianna", lastName: "Petrenko", bday: "03-25-2011" },
+            { name: "Annabel", lastName: "Petrenko", bday: "12-05-2016" },
+          ],
         },
         {
           name: "Timmich",
-          spouse: "Angelina",
-          children: [{ name: "Miko" }, { name: "Kai" }, { name: "Finley" }, { name: "Aviva" }],
+          lastName: "Petrenko",
+          bday: "07-06-1986",
+          spouse: { name: "Angelina", lastName: "Petrenko", bday: "03-12-1987" },
+          children: [
+            { name: "Miko", lastName: "Petrenko", bday: "07-07-2016" },
+            { name: "Finley", lastName: "Petrenko", bday: "10-16-2018" },
+            { name: "Kai", lastName: "Petrenko", bday: "08-27-2021" },
+            { name: "Aviva", lastName: "Petrenko", bday: "01-13-2025" },
+          ],
         },
         {
           name: "Vital",
-          spouse: "Liza",
-          children: [{ name: "Vika" }, { name: "Jason" }, { name: "Matthew" }, { name: "Katie" }, { name: "Ava" }],
+          lastName: "Petrenko",
+          bday: "09-08-1987",
+          spouse: { name: "Liza", lastName: "Petrenko", bday: "08-22-1987" },
+          children: [
+            { name: "Vika", lastName: "Petrenko", bday: "11-30-2005" },
+            { name: "Katie", lastName: "Petrenko", bday: "05-19-2011" },
+            { name: "Ava", lastName: "Petrenko", bday: "04-20-2012" },
+            { name: "Jason", lastName: "Petrenko", bday: "03-09-2013" },
+            { name: "Matthew", lastName: "Petrenko", bday: "09-13-2015" },
+          ],
         },
         {
           name: "Anna",
-          children: [{ name: "Abby" }],
+          lastName: "Petrenko",
+          bday: "05-20-1989",
+          children: [{ name: "Abby", lastName: "Petrenko", bday: "06-07-2010" }],
         },
         {
           name: "Denis",
-          spouse: "Oksana",
-          children: [{ name: "Isla" }],
+          lastName: "Petrenko",
+          bday: "07-27-1991",
+          spouse: { name: "Oksana", lastName: "Petrenko", bday: "01-04-1994" },
+          children: [{ name: "Isla", lastName: "Petrenko", bday: "04-26-2024" }],
         },
-        {
-          name: "Lilya",
-        },
+        { name: "Lilya", lastName: "Petrenko", bday: "12-06-1996" },
       ],
     },
     {
       name: "Mike",
-      spouse: "Alla",
-      formerSpouse: "Ella",
+      lastName: "Bondarenko",
+      bday: "03-01-1966",
+      spouse: { name: "Alla", lastName: "Bondarenko", bday: "11-18-1968" },
+      formerSpouse: { name: "Ella", lastName: "Bondarenko", bday: "10-01-1962" },
       children: [
         {
           name: "David",
-          spouse: "Anna",
-          children: [{ name: "Lea" }, { name: "Laura" }, { name: "Simon" }],
+          lastName: "Bondarenko",
+          bday: "08-30-1989",
+          spouse: { name: "Anna", lastName: "Bondarenko", bday: "09-12-1987" },
+          children: [
+            { name: "Lea", lastName: "Bondarenko", bday: "02-14-2019" },
+            { name: "Laura", lastName: "Bondarenko", bday: "11-08-2020" },
+            { name: "Simon", lastName: "Bondarenko", bday: "01-13-2019" },
+          ],
         },
         {
           name: "Dan",
-          spouse: "Anna",
-          children: [{ name: "Camilla" }, { name: "Louis" }],
+          lastName: "Bondarenko",
+          spouse: { name: "Anya", lastName: "Bondarenko", bday: "03-21-1986" },
+          children: [
+            { name: "Camilla", lastName: "Bondarenko", bday: "05-02-2017" },
+            { name: "Louis", lastName: "Bondarenko", bday: "02-20-2019" },
+          ],
         },
         {
           name: "Jenny",
-          spouse: "Ivan",
-          children: [{ name: "Andre" }, { name: "Amilia" }, { name: "Benjamin" }, { name: "Dominic" }],
+          lastName: "Iriciuc",
+          bday: "09-15-1990",
+          spouse: { name: "Ivan", lastName: "Iriciuc", bday: "04-20-1994" },
+          children: [
+            { name: "Andre", lastName: "Iriciuc", bday: "01-15-2022" },
+            { name: "Amilia", lastName: "Iriciuc", bday: "06-06-2023" },
+            { name: "Benjamin", lastName: "Iriciuc", bday: "11-19-2024" },
+            { name: "Dominic", lastName: "Iriciuc", bday: "03-08-2026" },
+          ],
         },
-        {
-          name: "Julie",
-        },
+        { name: "Julie", lastName: "Bondarenko", bday: "07-11-1996" },
       ],
     },
     {
       name: "Leo",
-      spouse: "Nelly",
+      lastName: "Bondarenko",
+      bday: "02-08-1969",
+      spouse: { name: "Nelly", lastName: "Bondarenko", bday: "03-05-1973" },
       children: [
-        {
-          name: "Janet",
-        },
-        {
-          name: "Jason",
-        },
-        { name: "Jacob" },
+        { name: "Janet", lastName: "Bondarenko", bday: "12-26-1993" },
+        { name: "Jason", lastName: "Bondarenko", bday: "04-23-1999" },
+        { name: "Jacob", lastName: "Bondarenko", bday: "07-30-2004" },
       ],
     },
     {
       name: "Anna",
-      spouse: "Igor",
+      lastName: "Melnichuk",
+      bday: "04-02-1971",
+      spouse: { name: "Igor", lastName: "Melnichuk", bday: "06-20-1967" },
       children: [
         {
           name: "Jessica",
-          spouse: "Vitalik",
-          children: [{ name: "Nelya" }, { name: "Sasha" }],
+          lastName: "Perepelitsa",
+          bday: "06-10-1994",
+          spouse: { name: "Vitalik", lastName: "Perepelitsa", bday: "09-14-1993" },
+          children: [
+            { name: "Nelya", lastName: "Perepelitsa", bday: "03-17-2022" },
+            { name: "Sasha", lastName: "Perepelitsa", bday: "09-08-2025" },
+          ],
         },
-        {
-          name: "Kristina",
-        },
-        { name: "Carolyn" },
-        { name: "Dan" },
-        { name: "Philip" },
+        { name: "Kristina", lastName: "Melnichuk", bday: "03-20-1996" },
+        { name: "Carolyn", lastName: "Melnichuk", bday: "12-12-1997" },
+        { name: "Dan", lastName: "Melnichuk", bday: "10-29-2003" },
+        { name: "Philip", lastName: "Melnichuk", bday: "05-30-2006" },
       ],
     },
     {
       name: "Tim",
-      spouse: "Ira",
-      children: [{ name: "Andrew" }, { name: "Lukas" }, { name: "Angelika" }],
+      lastName: "Bondarenko",
+      bday: "04-17-1974",
+      spouse: { name: "Ira", lastName: "Bondarenko", bday: "02-04-1975" },
+      children: [
+        { name: "Andrew", lastName: "Bondarenko", bday: "06-15-2005" },
+        { name: "Lukas", lastName: "Bondarenko", bday: "12-16-2006" },
+        { name: "Angelika", lastName: "Bondarenko", bday: "05-28-2009" },
+      ],
     },
     {
       name: "Dan",
-      spouse: "Tanya",
-      children: [{ name: "Mary" }, { name: "Andrew" }],
+      lastName: "Bondarenko",
+      bday: "08-12-1976",
+      spouse: { name: "Tanya", lastName: "Bondarenko", bday: "08-16-1975" },
+      children: [
+        { name: "Mary", lastName: "Bondarenko", bday: "08-31-2001" },
+        { name: "Andrew", lastName: "Bondarenko", bday: "03-12-2007" },
+      ],
     },
   ],
 };
@@ -207,8 +303,8 @@ const buildGenerationSections = (root: FamilyMember): GenerationSectionData[] =>
       groups: secondGeneration
         .map((member) => ({
           id: `${member.name.toLowerCase()}-branch`,
-          label: `${member.name}${member.spouse ? ` + ${member.spouse}` : ""}`,
-          formerSpouse: member.formerSpouse,
+          label: `${member.name}${member.spouse ? ` + ${member.spouse.name}` : ""}`,
+          formerSpouse: member.formerSpouse?.name,
           members: member.children ?? [],
         }))
         .filter((group) => group.members.length > 0),
@@ -247,6 +343,60 @@ const computeFamilyStats = (root: FamilyMember) => {
   };
 };
 
+export type BirthdayEntry = {
+  name: string;
+  lastName?: string;
+  bday: string;
+};
+
+const collectBirthdays = (member: FamilyMember, parentLastName?: string): BirthdayEntry[] => {
+  const entries: BirthdayEntry[] = [];
+  const lastName = member.lastName ?? parentLastName;
+
+  if (member.bday) entries.push({ name: member.name, lastName, bday: member.bday });
+  if (member.spouse?.bday) entries.push({ name: member.spouse.name, lastName, bday: member.spouse.bday });
+  if (member.formerSpouse?.bday)
+    entries.push({ name: member.formerSpouse.name, lastName, bday: member.formerSpouse.bday });
+
+  for (const child of member.children ?? []) {
+    entries.push(...collectBirthdays(child, lastName));
+  }
+
+  return entries;
+};
+
+const getUpcomingBirthdays = (entries: BirthdayEntry[], count: number): BirthdayEntry[] => {
+  const now = new Date();
+  const todayMonth = now.getMonth();
+  const todayDay = now.getDate();
+
+  const withDaysUntil = entries.map((entry) => {
+    const [mm, dd] = entry.bday.split("-").map(Number);
+    const month = mm - 1;
+    const day = dd;
+
+    let daysUntil: number;
+    const thisYear = new Date(now.getFullYear(), month, day);
+    const diffMs = thisYear.getTime() - new Date(now.getFullYear(), todayMonth, todayDay).getTime();
+    const diffDays = Math.round(diffMs / 86_400_000);
+
+    if (diffDays >= 0) {
+      daysUntil = diffDays;
+    } else {
+      const nextYear = new Date(now.getFullYear() + 1, month, day);
+      daysUntil = Math.round(
+        (nextYear.getTime() - new Date(now.getFullYear(), todayMonth, todayDay).getTime()) / 86_400_000,
+      );
+    }
+
+    return { ...entry, daysUntil };
+  });
+
+  withDaysUntil.sort((a, b) => a.daysUntil - b.daysUntil);
+  return withDaysUntil.slice(0, count);
+};
+
 export const totalFamilyMembers = countFamilyMembers(familyTree);
 export const generationSections = buildGenerationSections(familyTree);
 export const familyStats = computeFamilyStats(familyTree);
+export const upcomingBirthdays = getUpcomingBirthdays(collectBirthdays(familyTree), 5);

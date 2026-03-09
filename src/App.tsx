@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import GenerationSection from "./components/GenerationSection.tsx";
-import { familyStats, generationSections, totalFamilyMembers } from "./data/familyTree.ts";
+import UpcomingBirthdays from "./components/UpcomingBirthdays.tsx";
+import { familyStats, generationSections, totalFamilyMembers, upcomingBirthdays } from "./data/familyTree.ts";
 
 function App() {
   const [activeGeneration, setActiveGeneration] = useState(1);
@@ -123,6 +124,7 @@ function App() {
               ))}
             </div>
           </div>
+          <UpcomingBirthdays entries={upcomingBirthdays} />
         </div>
       </header>
 
@@ -135,6 +137,7 @@ function App() {
             }}
             section={section}
             active={activeGeneration === section.generation}
+            isFirst={index === 0}
             onJumpToGroup={scrollToGroup}
           />
         ))}

@@ -5,18 +5,19 @@ import FamilyBranchGroup from './FamilyBranchGroup.tsx'
 type GenerationSectionProps = {
   section: GenerationSectionData
   active: boolean
+  isFirst?: boolean
   onJumpToGroup: (groupId: string) => void
 }
 
 const GenerationSection = forwardRef<HTMLElement, GenerationSectionProps>(function GenerationSection(
-  { section, active, onJumpToGroup },
+  { section, active, isFirst, onJumpToGroup },
   ref,
 ) {
   return (
     <section
       ref={ref}
       data-generation={section.generation}
-      className="relative flex min-h-svh items-center py-20 md:py-28"
+      className={`relative flex py-20 md:py-28 ${isFirst ? "items-start" : "min-h-svh items-center"}`}
     >
       <div className="grid w-full gap-8 lg:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] lg:gap-10">
         <div className="lg:sticky lg:top-32 h-fit">
