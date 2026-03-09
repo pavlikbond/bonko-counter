@@ -21,7 +21,7 @@ const GenerationSection = forwardRef<HTMLElement, GenerationSectionProps>(functi
     >
       <div className="grid w-full gap-8 lg:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] lg:gap-10">
         <div className="lg:sticky lg:top-32 h-fit">
-          <p className="text-[11px] uppercase tracking-[0.32em] text-(--color-muted)">
+          <p className="text-[11px] uppercase tracking-[0.32em] text-(--color-accent)">
             {section.eyebrow}
           </p>
           <h2 className="mt-3 max-w-sm text-3xl font-semibold tracking-tight text-white md:text-5xl">

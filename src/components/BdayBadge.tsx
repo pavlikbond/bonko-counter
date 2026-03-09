@@ -22,7 +22,7 @@ function BdayBadge({ bday }: { bday?: string }) {
           role="button"
           tabIndex={0}
           onClick={(e) => e.stopPropagation()}
-          className="ml-2 inline-flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-white/5 align-middle text-white/50 transition-colors hover:border-white/25 hover:bg-white/10 hover:text-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+          className="ml-2 inline-flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-white/5 align-middle text-white/50 transition-colors hover:border-[rgba(138,173,126,0.3)] hover:bg-[rgba(138,173,126,0.12)] hover:text-(--color-accent) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
           aria-label={`Birthday: ${formatBday(bday)}`}
         >
           <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">

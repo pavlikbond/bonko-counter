@@ -97,7 +97,7 @@ function App() {
 
               <div className="rounded-[1.75rem] border border-white/10 bg-white/4 p-4 md:p-5">
                 <div className="flex items-end gap-3">
-                  <span className="text-6xl font-semibold leading-none text-white md:text-6xl">
+                  <span className="text-6xl font-semibold leading-none text-(--color-accent) md:text-6xl">
                     {totalFamilyMembers}
                   </span>
                   <span className="max-w-32 pb-1 text-xs uppercase tracking-[0.24em] text-(--color-muted)">
@@ -119,7 +119,7 @@ function App() {
                   key={stat.label}
                   className="rounded-full border border-white/10 bg-white/4 px-4 py-2 text-sm tracking-wide text-(--color-muted)"
                 >
-                  <span className="font-semibold text-white">{stat.value}</span> {stat.label}
+                  <span className="font-semibold text-(--color-accent)">{stat.value}</span> {stat.label}
                 </span>
               ))}
             </div>

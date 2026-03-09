@@ -7,6 +7,7 @@ type CoupleCardProps = {
   index: number
   compact?: boolean
   dark?: boolean
+  founders?: boolean
   clickable?: boolean
   expanded?: boolean
   showExpandCue?: boolean
@@ -19,6 +20,7 @@ function CoupleCard({
   index,
   compact = false,
   dark = false,
+  founders = false,
   clickable = false,
   expanded = false,
   showExpandCue = false,
@@ -54,12 +56,12 @@ function CoupleCard({
                 compact ? 'text-sm md:text-base' : 'text-base md:text-lg'
               }`}
             >
-              <span className="underline decoration-white/30 underline-offset-4">{member.name}</span>
+              <span className={`underline underline-offset-4 ${founders ? 'text-(--color-gold) decoration-(--color-gold)/30' : 'decoration-white/30'}`}>{member.name}</span>
               <BdayBadge bday={member.bday} />
               {member.spouse ? (
                 <>
                   <span className={`mx-1.5 ${dark ? 'text-white/30' : 'text-white/40'}`}>&amp;</span>
-                  <span>{member.spouse.name}</span>
+                  <span className={founders ? 'text-(--color-gold)' : ''}>{member.spouse.name}</span>
                   <BdayBadge bday={member.spouse.bday} />
                 </>
               ) : null}

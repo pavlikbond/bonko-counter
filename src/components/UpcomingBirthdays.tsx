@@ -30,7 +30,7 @@ function UpcomingBirthdays({ entries }: { entries: BirthdayEntry[] }) {
               key={`${entry.name}-${entry.bday}`}
               className={`flex items-center justify-between rounded-2xl border px-4 py-3 ${
                 isToday
-                  ? "border-white/20 bg-white/8 shadow-[0_0_24px_rgba(255,255,255,0.06)]"
+                  ? "border-[rgba(138,173,126,0.2)] bg-[rgba(138,173,126,0.06)] shadow-[0_0_24px_rgba(138,173,126,0.08)]"
                   : "border-white/6 bg-white/3"
               }`}
             >
@@ -52,7 +52,7 @@ function UpcomingBirthdays({ entries }: { entries: BirthdayEntry[] }) {
 
               <div className="flex items-center gap-2">
                 {isToday ? (
-                  <span className="rounded-full border border-white/15 bg-white/8 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white">
+                  <span className="rounded-full border border-[rgba(138,173,126,0.3)] bg-[rgba(138,173,126,0.12)] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em] text-(--color-accent)">
                     Today!
                   </span>
                 ) : null}

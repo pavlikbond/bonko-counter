@@ -36,7 +36,7 @@ function FamilyBranchGroup({
           </p>
         ) : null}
 
-        <h3 className="mt-1 text-lg font-semibold uppercase tracking-[0.18em] text-white">
+        <h3 className={`mt-1 text-lg font-semibold uppercase tracking-[0.18em] ${generation === 1 ? 'text-(--color-gold)' : 'text-white'}`}>
           {group.label}
           {group.formerSpouse ? (
             <span className="text-white/40">
@@ -60,6 +60,7 @@ function FamilyBranchGroup({
                 index={groupIndex * 2 + index}
                 compact={generation > 1}
                 dark={isDeepGeneration}
+                founders={generation === 1}
                 clickable={childCount > 0}
                 expanded={isExpandableBranch && isExpanded}
                 showExpandCue={isExpandableBranch}
