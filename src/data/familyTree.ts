@@ -38,10 +38,10 @@ export const familyTree: FamilyMember = {
   spouse: { name: "Diana", lastName: "Bondarenko", bday: "01-13-1937" },
   children: [
     {
-      name: "Benjamin",
+      name: "Venya",
       lastName: "Bondarenko",
       bday: "03-25-1962",
-      spouse: { name: "Lyubov", lastName: "Bondarenko", bday: "06-21-1962" },
+      spouse: { name: "Lyuba", lastName: "Bondarenko", bday: "06-21-1962" },
       children: [
         {
           name: "Liza",
