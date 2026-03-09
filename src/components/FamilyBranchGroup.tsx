@@ -8,6 +8,7 @@ type FamilyBranchGroupProps = {
   generation: number
   active: boolean
   groupIndex: number
+  descendantCounts?: Map<string, number>
   onJumpToGroup: (groupId: string) => void
 }
 
@@ -16,6 +17,7 @@ function FamilyBranchGroup({
   generation,
   active,
   groupIndex,
+  descendantCounts,
   onJumpToGroup,
 }: FamilyBranchGroupProps) {
   const groupDelay = groupIndex * 90
@@ -64,6 +66,7 @@ function FamilyBranchGroup({
                 clickable={childCount > 0}
                 expanded={isExpandableBranch && isExpanded}
                 showExpandCue={isExpandableBranch}
+                descendantCount={generation === 2 ? descendantCounts?.get(member.name) : undefined}
                 onClick={() => {
                   if (generation === 1) {
                     onJumpToGroup('seven-kids')

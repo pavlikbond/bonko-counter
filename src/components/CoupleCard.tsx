@@ -11,6 +11,7 @@ type CoupleCardProps = {
   clickable?: boolean
   expanded?: boolean
   showExpandCue?: boolean
+  descendantCount?: number
   onClick?: () => void
 }
 
@@ -24,6 +25,7 @@ function CoupleCard({
   clickable = false,
   expanded = false,
   showExpandCue = false,
+  descendantCount,
   onClick,
 }: CoupleCardProps) {
   const childCount = member.children?.length ?? 0
@@ -75,31 +77,39 @@ function CoupleCard({
             </p>
           </div>
 
-          {childCount > 0 ? (
-            <span
-              className={`mt-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] uppercase tracking-[0.28em] ${
-                dark
-                  ? 'border-white/6 bg-white/3 text-white/38'
-                  : 'border-white/10 bg-white/6 text-(--color-muted)'
-              } ${
-                showExpandCue ? 'text-white/62' : ''
-              }`}
-            >
-              {clickable ? `${childCount} kids` : `${childCount} next`}
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            {childCount > 0 ? (
               <span
-                className={`inline-flex items-center justify-center text-white/55 transition-transform duration-300 ${
-                  showExpandCue ? 'opacity-100' : 'opacity-0'
+                className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] uppercase tracking-[0.28em] ${
+                  dark
+                    ? 'border-white/6 bg-white/3 text-white/38'
+                    : 'border-white/10 bg-white/6 text-(--color-muted)'
                 } ${
-                    expanded ? 'rotate-180' : ''
-                  }`}
-                aria-hidden="true"
+                  showExpandCue ? 'text-white/62' : ''
+                }`}
               >
-                <svg viewBox="0 0 20 20" className="h-3.5 w-3.5 fill-current">
-                  <path d="M10 13.5 3.75 7.25l1.5-1.5L10 10.5l4.75-4.75 1.5 1.5Z" />
-                </svg>
+                {clickable ? `${childCount} kids` : `${childCount} next`}
+                <span
+                  className={`inline-flex items-center justify-center text-white/55 transition-transform duration-300 ${
+                    showExpandCue ? 'opacity-100' : 'opacity-0'
+                  } ${
+                      expanded ? 'rotate-180' : ''
+                    }`}
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 20 20" className="h-3.5 w-3.5 fill-current">
+                    <path d="M10 13.5 3.75 7.25l1.5-1.5L10 10.5l4.75-4.75 1.5 1.5Z" />
+                  </svg>
+                </span>
               </span>
-            </span>
-          ) : null}
+            ) : null}
+
+            {descendantCount != null && descendantCount > 0 ? (
+              <span className="inline-flex rounded-full border border-(--color-accent)/20 bg-(--color-accent)/8 px-3 py-1.5 text-[10px] uppercase tracking-[0.28em] text-(--color-accent)">
+                {descendantCount} descendants
+              </span>
+            ) : null}
+          </div>
         </div>
       </button>
     </div>

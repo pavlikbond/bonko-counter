@@ -6,11 +6,12 @@ type GenerationSectionProps = {
   section: GenerationSectionData
   active: boolean
   isFirst?: boolean
+  descendantCounts?: Map<string, number>
   onJumpToGroup: (groupId: string) => void
 }
 
 const GenerationSection = forwardRef<HTMLElement, GenerationSectionProps>(function GenerationSection(
-  { section, active, isFirst, onJumpToGroup },
+  { section, active, isFirst, descendantCounts, onJumpToGroup },
   ref,
 ) {
   return (
@@ -48,6 +49,7 @@ const GenerationSection = forwardRef<HTMLElement, GenerationSectionProps>(functi
               generation={section.generation}
               active={active}
               groupIndex={index}
+              descendantCounts={descendantCounts}
               onJumpToGroup={onJumpToGroup}
             />
           ))}

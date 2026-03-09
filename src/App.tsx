@@ -1,7 +1,8 @@
+import { Baby, Cake } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import GenerationSection from "./components/GenerationSection.tsx";
 import UpcomingBirthdays from "./components/UpcomingBirthdays.tsx";
-import { familyStats, generationSections, totalFamilyMembers, upcomingBirthdays } from "./data/familyTree.ts";
+import { branchDescendantCounts, busiestBirthdayMonth, familyStats, generationSections, newestBonko, totalFamilyMembers, upcomingBirthdays } from "./data/familyTree.ts";
 
 function App() {
   const [activeGeneration, setActiveGeneration] = useState(1);
@@ -123,6 +124,32 @@ function App() {
                 </span>
               ))}
             </div>
+
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              <div className="flex items-center gap-3 rounded-2xl border border-(--color-accent)/15 bg-(--color-accent)/5 px-4 py-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-(--color-accent)/15">
+                  <Baby className="h-4.5 w-4.5 text-(--color-accent)" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs uppercase tracking-[0.24em] text-(--color-muted)">Youngest Bonko</p>
+                  <p className="truncate text-sm font-semibold text-white">
+                    {newestBonko.name} <span className="font-normal text-(--color-accent)">{newestBonko.lastName}</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-2xl border border-(--color-gold)/15 bg-(--color-gold)/5 px-4 py-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-(--color-gold)/15">
+                  <Cake className="h-4.5 w-4.5 text-(--color-gold)" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs uppercase tracking-[0.24em] text-(--color-muted)">Busiest Birthday Month</p>
+                  <p className="text-sm font-semibold text-white">
+                    {busiestBirthdayMonth.month} <span className="font-normal text-(--color-gold)">{busiestBirthdayMonth.count} birthdays</span>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
           <UpcomingBirthdays entries={upcomingBirthdays} />
         </div>
@@ -138,6 +165,7 @@ function App() {
             section={section}
             active={activeGeneration === section.generation}
             isFirst={index === 0}
+            descendantCounts={branchDescendantCounts}
             onJumpToGroup={scrollToGroup}
           />
         ))}

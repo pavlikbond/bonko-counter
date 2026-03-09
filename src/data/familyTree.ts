@@ -396,7 +396,61 @@ const getUpcomingBirthdays = (entries: BirthdayEntry[], count: number): Birthday
   return withDaysUntil.slice(0, count);
 };
 
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+const findNewestBonko = (entries: BirthdayEntry[]): BirthdayEntry => {
+  let newest = entries[0];
+  let newestTime = 0;
+
+  for (const entry of entries) {
+    const [mm, dd, yyyy] = entry.bday.split("-").map(Number);
+    const time = new Date(yyyy, mm - 1, dd).getTime();
+    if (time > newestTime) {
+      newestTime = time;
+      newest = entry;
+    }
+  }
+
+  return newest;
+};
+
+const findBusiestBirthdayMonth = (entries: BirthdayEntry[]): { month: string; count: number } => {
+  const counts = new Array<number>(12).fill(0);
+
+  for (const entry of entries) {
+    const month = Number(entry.bday.split("-")[0]) - 1;
+    counts[month]++;
+  }
+
+  let maxIndex = 0;
+  for (let i = 1; i < 12; i++) {
+    if (counts[i] > counts[maxIndex]) maxIndex = i;
+  }
+
+  return { month: MONTH_NAMES[maxIndex], count: counts[maxIndex] };
+};
+
+const computeBranchDescendantCounts = (root: FamilyMember): Map<string, number> => {
+  const counts = new Map<string, number>();
+
+  for (const child of root.children ?? []) {
+    const total = countFamilyMembers(child);
+    const self = 1 + (child.spouse ? 1 : 0) + (child.formerSpouse ? 1 : 0);
+    counts.set(child.name, total - self);
+  }
+
+  return counts;
+};
+
+const allBirthdays = collectBirthdays(familyTree);
+
 export const totalFamilyMembers = countFamilyMembers(familyTree);
 export const generationSections = buildGenerationSections(familyTree);
 export const familyStats = computeFamilyStats(familyTree);
-export const upcomingBirthdays = getUpcomingBirthdays(collectBirthdays(familyTree), 5);
+export const upcomingBirthdays = getUpcomingBirthdays(allBirthdays, 5);
+export const newestBonko = findNewestBonko(allBirthdays);
+export const busiestBirthdayMonth = findBusiestBirthdayMonth(allBirthdays);
+export const branchDescendantCounts = computeBranchDescendantCounts(familyTree);
