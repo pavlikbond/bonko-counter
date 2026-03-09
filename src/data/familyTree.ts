@@ -70,7 +70,7 @@ export const familyTree: FamilyMember = {
           name: "Pavel",
           lastName: "Bondarenko",
           bday: "07-26-1991",
-          spouse: { name: "Tanya", lastName: "Bondarenko", bday: "04-02-1996" },
+          spouse: { name: "Tanya", lastName: "Bondarenko", bday: "06-02-1996" },
           children: [
             { name: "Lilah", lastName: "Bondarenko", bday: "04-22-2022" },
             { name: "Noah", lastName: "Bondarenko", bday: "06-03-2024" },
