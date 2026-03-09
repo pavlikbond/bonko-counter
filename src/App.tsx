@@ -90,16 +90,13 @@ function App() {
           <div className="glass-panel px-4 py-4 md:px-6">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div className="max-w-2xl">
-                <h1 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Bonko Counter</h1>
-                <p className="mt-2 text-sm uppercase tracking-[0.28em] text-(--color-muted)">
-                  How many Bonkos are there, anyway?
-                </p>
+                <h1 className="text-5xl font-semibold tracking-tight text-white md:text-5xl">Bonko Counter</h1>
+                <p className="mt-2 text-(--color-muted)">How many Bonkos are there, anyway?</p>
               </div>
 
               <div className="rounded-[1.75rem] border border-white/10 bg-white/4 p-4 md:p-5">
-                <p className="text-[11px] uppercase tracking-[0.28em] text-(--color-muted)">Current Bonkos</p>
-                <div className="mt-2 flex items-end gap-3">
-                  <span className="text-5xl font-semibold leading-none text-white md:text-6xl">
+                <div className="flex items-end gap-3">
+                  <span className="text-6xl font-semibold leading-none text-white md:text-6xl">
                     {totalFamilyMembers}
                   </span>
                   <span className="max-w-32 pb-1 text-xs uppercase tracking-[0.24em] text-(--color-muted)">
