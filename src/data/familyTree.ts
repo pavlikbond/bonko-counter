@@ -268,11 +268,11 @@ const buildGenerationSections = (root: FamilyMember): GenerationSectionData[] =>
       eyebrow: "Where it all began",
       navLabel: "Roots",
       title: "Peter and Diana",
-      description: "Meet Peter and Diana -- the OGs. Scroll down and watch the chaos unfold.",
+      description: "Meet Peter and Diana -- the couple who started it all. Scroll down to see how the family grew.",
       groups: [
         {
           id: "root-couple",
-          label: "The OG couple",
+          label: "The founders",
           members: [root],
         },
       ],
