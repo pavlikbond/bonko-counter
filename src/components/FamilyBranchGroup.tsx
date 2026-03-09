@@ -37,6 +37,11 @@ function FamilyBranchGroup({
 
         <h3 className="mt-1 text-lg font-semibold uppercase tracking-[0.18em] text-white">
           {group.label}
+          {group.formerSpouse ? (
+            <span className="text-white/40">
+              {' '}+ <span className="text-white/45">{group.formerSpouse}<span className="ml-0.5 text-[0.7em] text-white/35">†</span></span>
+            </span>
+          ) : null}
         </h3>
       </div>
 

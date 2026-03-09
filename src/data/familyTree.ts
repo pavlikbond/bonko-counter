@@ -1,6 +1,7 @@
 export type FamilyMember = {
   name: string;
   spouse?: string;
+  formerSpouse?: string;
   children?: FamilyMember[];
 };
 
@@ -8,6 +9,7 @@ export type FamilyGroup = {
   id: string;
   label: string;
   parentLabel?: string;
+  formerSpouse?: string;
   members: FamilyMember[];
 };
 
@@ -32,88 +34,25 @@ export const familyTree: FamilyMember = {
         {
           name: "Liza",
           spouse: "Yura",
-          children: [
-            { name: "Ethan" },
-            { name: "Matthew" },
-            { name: "Philip" },
-            { name: "Nellie" },
-          ],
+          children: [{ name: "Ethan" }, { name: "Matthew" }, { name: "Philip" }, { name: "Nellie" }],
         },
         {
           name: "Joseph",
           spouse: "Lily",
-          children: [
-            { name: "Elsie" },
-            { name: "Avie" },
-            { name: "Silas" },
-          ],
+          children: [{ name: "Elsie" }, { name: "Avie" }, { name: "Silas" }],
         },
         {
           name: "Pavel",
           spouse: "Tanya",
-          children: [
-            { name: "Lilah" },
-            { name: "Noah" },
-          ],
+          children: [{ name: "Lilah" }, { name: "Noah" }],
         },
         {
           name: "Mariya",
           spouse: "Andrey",
-          children: [
-            { name: "Addie" },
-            { name: "Lucy" },
-          ],
+          children: [{ name: "Addie" }, { name: "Lucy" }],
         },
         { name: "Mark", spouse: "Abby", children: [{ name: "Haddie" }] },
-        { name: "Anna", spouse: "Ian" },
-      ],
-    },
-    {
-      name: "Anna",
-      spouse: "Igor",
-      children: [
-        {
-          name: "Roman",
-          spouse: "Alina",
-          children: [{ name: "Vera" }],
-        },
-        {
-          name: "Liza",
-          spouse: "Peter",
-          children: [{ name: "Luka" }],
-        },
-        { name: "Nina" },
-        { name: "David" },
-      ],
-    },
-    {
-      name: "Mike",
-      spouse: "Ella",
-      children: [
-        {
-          name: "Maxim",
-          spouse: "Chloe",
-          children: [
-            { name: "Theo" },
-            { name: "Noah" },
-          ],
-        },
-        {
-          name: "Kristina",
-          spouse: "Artem",
-          children: [{ name: "Maya" }],
-        },
-        {
-          name: "Pavel",
-          spouse: "Iryna",
-          children: [
-            { name: "Elias" },
-            { name: "Zoe" },
-            { name: "Mira" },
-          ],
-        },
-        { name: "Sonia" },
-        { name: "Mark" },
+        { name: "Anna" },
       ],
     },
     {
@@ -121,20 +60,54 @@ export const familyTree: FamilyMember = {
       spouse: "Volodya",
       children: [
         {
-          name: "Daria",
-          spouse: "Anton",
-          children: [{ name: "Ivy" }],
+          name: "Dydi",
+          spouse: "Jenny",
+          children: [{ name: "Arianna" }, { name: "Annabel" }],
         },
         {
-          name: "Victor",
-          spouse: "Mia",
-          children: [
-            { name: "Leo" },
-            { name: "Mila" },
-          ],
+          name: "Timmich",
+          spouse: "Angelina",
+          children: [{ name: "Miko" }, { name: "Kai" }, { name: "Finley" }, { name: "Aviva" }],
         },
-        { name: "Elina" },
-        { name: "Tomas" },
+        {
+          name: "Vital",
+          spouse: "Liza",
+          children: [{ name: "Vika" }, { name: "Jason" }, { name: "Matthew" }, { name: "Katie" }, { name: "Ava" }],
+        },
+        {
+          name: "Anna",
+          children: [{ name: "Abby" }],
+        },
+        {
+          name: "Denis",
+          spouse: "Oksana",
+          children: [{ name: "Isla" }],
+        },
+        {
+          name: "Lilya",
+        },
+      ],
+    },
+    {
+      name: "Mike",
+      spouse: "Alla",
+      formerSpouse: "Ella",
+      children: [
+        {
+          name: "David",
+          spouse: "Anna",
+          children: [{ name: "Lea" }, { name: "Laura" }, { name: "Simon" }],
+        },
+        {
+          name: "Dan",
+          spouse: "Anna",
+          children: [{ name: "Camilla" }, { name: "Louis" }],
+        },
+        {
+          name: "Jenny",
+          spouse: "Ivan",
+          children: [{ name: "Andre" }, { name: "Amilia" }, { name: "Benjamin" }, { name: "Dominic" }],
+        },
       ],
     },
     {
@@ -142,65 +115,40 @@ export const familyTree: FamilyMember = {
       spouse: "Nelly",
       children: [
         {
-          name: "Stefan",
-          spouse: "Julia",
-          children: [
-            { name: "Clara" },
-            { name: "Owen" },
-          ],
+          name: "Janet",
         },
         {
-          name: "Marta",
-          spouse: "Denis",
-          children: [{ name: "Lila" }],
+          name: "Jason",
         },
-        { name: "Peter" },
-        { name: "Eva" },
-        { name: "Luka" },
+        { name: "Jacob" },
+      ],
+    },
+    {
+      name: "Anna",
+      spouse: "Igor",
+      children: [
+        {
+          name: "Jessica",
+          spouse: "Vitalik",
+          children: [{ name: "Nelya" }, { name: "Sasha" }],
+        },
+        {
+          name: "Kristina",
+        },
+        { name: "Carolyn" },
+        { name: "Dan" },
+        { name: "Philip" },
       ],
     },
     {
       name: "Tim",
       spouse: "Ira",
-      children: [
-        {
-          name: "Alex",
-          spouse: "Sofia",
-          children: [
-            { name: "Nina" },
-            { name: "Isaac" },
-          ],
-        },
-        {
-          name: "Daniel",
-          spouse: "Mila",
-          children: [{ name: "Nova" }],
-        },
-        { name: "Elena" },
-        { name: "Max" },
-      ],
+      children: [{ name: "Andrew" }, { name: "Lukas" }, { name: "Angelika" }],
     },
     {
       name: "Dan",
       spouse: "Tanya",
-      children: [
-        {
-          name: "Nikolai",
-          spouse: "Anna",
-          children: [
-            { name: "Ella" },
-            { name: "Jack" },
-            { name: "Theo" },
-          ],
-        },
-        {
-          name: "Vera",
-          spouse: "Roman",
-          children: [{ name: "Sophie" }],
-        },
-        { name: "Adrian" },
-        { name: "Mira" },
-      ],
+      children: [{ name: "Mary" }, { name: "Andrew" }],
     },
   ],
 };
@@ -208,7 +156,7 @@ export const familyTree: FamilyMember = {
 const countFamilyMembers = (member: FamilyMember): number => {
   const childCount = member.children?.reduce((sum, child) => sum + countFamilyMembers(child), 0) ?? 0;
 
-  return 1 + (member.spouse ? 1 : 0) + childCount;
+  return 1 + (member.spouse ? 1 : 0) + (member.formerSpouse ? 1 : 0) + childCount;
 };
 
 const buildGenerationSections = (root: FamilyMember): GenerationSectionData[] => {
@@ -221,8 +169,7 @@ const buildGenerationSections = (root: FamilyMember): GenerationSectionData[] =>
       eyebrow: "Where it all began",
       navLabel: "Roots",
       title: "Peter and Diana",
-      description:
-        "Meet Peter and Diana -- the OGs. Scroll down and watch the chaos unfold.",
+      description: "Meet Peter and Diana -- the OGs. Scroll down and watch the chaos unfold.",
       groups: [
         {
           id: "root-couple",
@@ -258,6 +205,7 @@ const buildGenerationSections = (root: FamilyMember): GenerationSectionData[] =>
         .map((member) => ({
           id: `${member.name.toLowerCase()}-branch`,
           label: `${member.name}${member.spouse ? ` + ${member.spouse}` : ""}`,
+          formerSpouse: member.formerSpouse,
           members: member.children ?? [],
         }))
         .filter((group) => group.members.length > 0),
@@ -265,5 +213,37 @@ const buildGenerationSections = (root: FamilyMember): GenerationSectionData[] =>
   ];
 };
 
+const computeFamilyStats = (root: FamilyMember) => {
+  let grandkids = 0;
+  let greatGrandkids = 0;
+  let marriedIn = 0;
+
+  for (const child of root.children ?? []) {
+    if (child.spouse) marriedIn++;
+    if (child.formerSpouse) marriedIn++;
+
+    for (const grandchild of child.children ?? []) {
+      grandkids++;
+      if (grandchild.spouse) marriedIn++;
+      if (grandchild.formerSpouse) marriedIn++;
+
+      for (const greatGrandchild of grandchild.children ?? []) {
+        greatGrandkids++;
+        if (greatGrandchild.spouse) marriedIn++;
+        if (greatGrandchild.formerSpouse) marriedIn++;
+      }
+    }
+  }
+
+  return {
+    founders: 1 + (root.spouse ? 1 : 0),
+    kids: root.children?.length ?? 0,
+    grandkids,
+    greatGrandkids,
+    marriedIn,
+  };
+};
+
 export const totalFamilyMembers = countFamilyMembers(familyTree);
 export const generationSections = buildGenerationSections(familyTree);
+export const familyStats = computeFamilyStats(familyTree);

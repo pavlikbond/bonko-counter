@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import GenerationSection from "./components/GenerationSection.tsx";
-import { generationSections, totalFamilyMembers } from "./data/familyTree.ts";
+import { familyStats, generationSections, totalFamilyMembers } from "./data/familyTree.ts";
 
 function App() {
   const [activeGeneration, setActiveGeneration] = useState(1);
@@ -67,13 +67,6 @@ function App() {
     };
   }, []);
 
-  const scrollToGeneration = (index: number) => {
-    sectionRefs.current[index]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
-
   const scrollToGroup = (groupId: string) => {
     const groupElement = document.getElementById(groupId);
     const generation = Number(groupElement?.closest("[data-generation]")?.getAttribute("data-generation"));
@@ -97,12 +90,9 @@ function App() {
           <div className="glass-panel px-4 py-4 md:px-6">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div className="max-w-2xl">
-                <p className="text-[11px] uppercase tracking-[0.34em] text-(--color-muted)">Bonko Counter</p>
-                <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+                <h1 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">Bonko Counter</h1>
+                <p className="mt-2 text-sm uppercase tracking-[0.28em] text-(--color-muted)">
                   How many Bonkos are there, anyway?
-                </h1>
-                <p className="mt-3 max-w-xl text-sm leading-6 text-(--color-muted)">
-                  It all started with Peter and Diana. Scroll down and see just how far this thing has spread.
                 </p>
               </div>
 
@@ -113,26 +103,26 @@ function App() {
                     {totalFamilyMembers}
                   </span>
                   <span className="max-w-32 pb-1 text-xs uppercase tracking-[0.24em] text-(--color-muted)">
-                    Bonkos eating borscht daily
+                    Bonkos eating vareniki daily
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
-              {generationSections.map((section, index) => (
-                <button
-                  key={section.id}
-                  type="button"
-                  onClick={() => scrollToGeneration(index)}
-                  className={`rounded-full border px-4 py-2 text-sm uppercase tracking-[0.18em] transition-colors ${
-                    activeGeneration === section.generation
-                      ? "border-white/40 bg-white text-black"
-                      : "border-white/10 bg-white/2 text-(--color-muted) hover:border-white/20 hover:text-white"
-                  }`}
+            <div className="mt-4 flex flex-wrap gap-2">
+              {[
+                { value: familyStats.founders, label: "founders" },
+                { value: familyStats.kids, label: "kids" },
+                { value: familyStats.grandkids, label: "grandkids" },
+                { value: familyStats.greatGrandkids, label: "great grandkids" },
+                { value: familyStats.marriedIn, label: "married in" },
+              ].map((stat) => (
+                <span
+                  key={stat.label}
+                  className="rounded-full border border-white/10 bg-white/4 px-4 py-2 text-sm tracking-wide text-(--color-muted)"
                 >
-                  {section.navLabel}
-                </button>
+                  <span className="font-semibold text-white">{stat.value}</span> {stat.label}
+                </span>
               ))}
             </div>
           </div>

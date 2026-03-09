@@ -60,6 +60,12 @@ function CoupleCard({
                   <span>{member.spouse}</span>
                 </>
               ) : null}
+              {member.formerSpouse ? (
+                <>
+                  <span className={`mx-1.5 ${dark ? 'text-white/30' : 'text-white/40'}`}>&amp;</span>
+                  <span className="text-white/45">{member.formerSpouse}<span className="ml-0.5 text-[0.7em] text-white/35">†</span></span>
+                </>
+              ) : null}
             </p>
           </div>
 
