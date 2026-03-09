@@ -106,7 +106,7 @@ export const familyTree: FamilyMember = {
           name: "Dydi",
           lastName: "Petrenko",
           bday: "07-31-1984",
-          spouse: { name: "Jenny", lastName: "Petrenko", bday: "09-15-1990" },
+          spouse: { name: "Jenny", lastName: "Petrenko", bday: "04-09-1985" },
           children: [
             { name: "Arianna", lastName: "Petrenko", bday: "03-25-2011" },
             { name: "Annabel", lastName: "Petrenko", bday: "12-05-2016" },
