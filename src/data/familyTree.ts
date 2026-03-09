@@ -108,6 +108,9 @@ export const familyTree: FamilyMember = {
           spouse: "Ivan",
           children: [{ name: "Andre" }, { name: "Amilia" }, { name: "Benjamin" }, { name: "Dominic" }],
         },
+        {
+          name: "Julie",
+        },
       ],
     },
     {
