@@ -2,7 +2,15 @@ import { Baby, Cake } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import GenerationSection from "./components/GenerationSection.tsx";
 import UpcomingBirthdays from "./components/UpcomingBirthdays.tsx";
-import { branchDescendantCounts, busiestBirthdayMonth, familyStats, generationSections, newestBonko, totalFamilyMembers, upcomingBirthdays } from "./data/familyTree.ts";
+import {
+  branchDescendantCounts,
+  busiestBirthdayMonth,
+  familyStats,
+  generationSections,
+  newestBonko,
+  totalFamilyMembers,
+  upcomingBirthdays,
+} from "./data/familyTree.ts";
 
 function App() {
   const [activeGeneration, setActiveGeneration] = useState(1);
@@ -113,13 +121,10 @@ function App() {
                 { value: familyStats.founders, label: "founders" },
                 { value: familyStats.kids, label: "kids" },
                 { value: familyStats.grandkids, label: "grandkids" },
-                { value: familyStats.greatGrandkids, label: "great grandkids" },
+                { value: familyStats.greatGrandkids, label: "great- grandkids" },
                 { value: familyStats.marriedIn, label: "married in" },
               ].map((stat) => (
-                <span
-                  key={stat.label}
-                  className="rounded-full border border-white/10 bg-white/4 px-4 py-2 text-sm tracking-wide text-(--color-muted)"
-                >
+                <span key={stat.label} className=" px-2 py-1 text-sm tracking-wide text-(--color-muted)">
                   <span className="font-semibold text-(--color-accent)">{stat.value}</span> {stat.label}
                 </span>
               ))}
@@ -145,7 +150,8 @@ function App() {
                 <div className="min-w-0">
                   <p className="text-xs uppercase tracking-[0.24em] text-(--color-muted)">Busiest Birthday Month</p>
                   <p className="text-sm font-semibold text-white">
-                    {busiestBirthdayMonth.month} <span className="font-normal text-(--color-gold)">{busiestBirthdayMonth.count} birthdays</span>
+                    {busiestBirthdayMonth.month}{" "}
+                    <span className="font-normal text-(--color-gold)">{busiestBirthdayMonth.count} birthdays</span>
                   </p>
                 </div>
               </div>
