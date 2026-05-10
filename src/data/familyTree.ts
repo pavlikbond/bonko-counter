@@ -234,7 +234,12 @@ export const familyTree: FamilyMember = {
       bday: "04-17-1974",
       spouse: { name: "Ira", lastName: "Bondarenko", bday: "02-04-1975" },
       children: [
-        { name: "Andrew", lastName: "Bondarenko", bday: "06-15-2005" },
+        {
+          name: "Andrew",
+          lastName: "Bondarenko",
+          bday: "06-15-2005",
+          spouse: { name: "Evelina", lastName: "Bondarenko", bday: "" },
+        },
         { name: "Lukas", lastName: "Bondarenko", bday: "12-16-2006" },
         { name: "Angelika", lastName: "Bondarenko", bday: "05-28-2009" },
       ],
