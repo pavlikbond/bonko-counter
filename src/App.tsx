@@ -12,6 +12,31 @@ import {
   upcomingBirthdays,
 } from "./data/familyTree.ts";
 
+const slavActivities = [
+  "eating borscht",
+  "eating vareniki",
+  "squatting in Adidas",
+  "drinking kompot",
+  "peeling sunflower seeds",
+  "arguing about salo",
+  "rolling golubtsi",
+  "pickling cucumbers",
+  "slicing kolbasa",
+  "hoarding buckwheat",
+  "brewing uzvar",
+  "baking pampushky",
+  "shelling walnuts",
+  "stirring smetana",
+  "fermenting kvas",
+  "folding pierogi",
+  "grating beets",
+  "slurping solyanka",
+  "stacking blini",
+  "curing horseradish",
+];
+
+const slavActivity = slavActivities[Math.floor(Math.random() * slavActivities.length)];
+
 function App() {
   const [activeGeneration, setActiveGeneration] = useState(1);
   const sectionRefs = useRef<Array<HTMLElement | null>>([]);
@@ -110,7 +135,7 @@ function App() {
                     {totalFamilyMembers}
                   </span>
                   <span className="max-w-32 pb-1 text-xs uppercase tracking-[0.24em] text-(--color-muted)">
-                    Bonkos eating vareniki daily
+                    Bonkos {slavActivity}
                   </span>
                 </div>
               </div>
